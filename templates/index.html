@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Scrapper</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- fontawesome css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}">
+
+  </head>
+<body>
+    <!-- ======= navbar part ====== -->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #322348;">
+      <a class="navbar-brand" href="home.html">Flipkart Review Scrapper</a>
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="padding: 0px 20px;">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/Sultan-Salim-Shaikh"><i class="fa fa-github"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://instagram.com"><i class="fa fa-instagram"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.linkedin.com/in/sultan-salim-shaikh/"><i class="fa fa-linkedin-square"></i></a>
+            <a class="nav-link" href="https://www.linkedin.com/in/sultan-salim-shaikh/"><i class="fa fa-linkedin-square"></i></a>
+
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- ========= navbar area ends here ========= -->
+    <!-- ############# copy till here as a commmon code in all parts ############ -->
+    
+      {{ error }}    
+        
+    
+    
+    <div class="jumbotron">
+      <h1 class="display-4">How it Works?</h1>
+      <hr class="my-4">
+      <p class="lead"><b>To use it, you just need to enter the Product name of any product listed on Flipkart of which you want to extract reviews. After entering the name you will get the results displayed in a table which you can download in CSV format.</b></p>
+      
+      <!-- ========= form area ======== -->
+      <hr class="my-4">
+      <form action="/result" method="POST">
+        <div class="form-group col-md-6">
+          <input class="form-control" type="text" name = "searchString" placeholder="Enter Product Name..." aria-label="Search" required>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-success btn-rounded">Run Scrapper</button>
+        </div>
+      </form>
+      &nbsp;
+      
+      <form action="/result-by-link" method="POST">
+        <div class="form-group col-md-6">
+          <input class="form-control" type="text" name = "searchStringLink" placeholder="Paste the product link..." aria-label="Search" required>
+        </div>
+        <label for="quantity">   (Range 1 and 150):</label>
+        <input type="number" id="quantity" name="noOfReview" min="1" max="150" value="10">
+        <div class="col-auto">
+          <button type="submit" class="btn btn-success btn-rounded">Run Scrapper</button>
+        </div>
+      </form>
+    </div>
+      
+    <!-- ############# common footer area and scripts for all pages ############# -->    
+    <nav class="footer fixed-bottom">
+      <p>Crafted with <span style="color: tomato;">❤</span> using &nbsp;<i class="fa fa-github" style="color: #00abeec9; font-size: 18px;"></i></p>
+    </nav>
+
+    
+    <!-- ============ Bootstrap JS =========== -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
